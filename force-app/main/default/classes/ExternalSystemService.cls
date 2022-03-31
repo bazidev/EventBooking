@@ -2,7 +2,7 @@
  * @description       :
  * @author            : melbazi@salesforce.com
  * @group             :
- * @last modified on  : 28-03-2022
+ * @last modified on  : 31-03-2022
  * @last modified by  : melbazi@salesforce.com
  **/
 public class ExternalSystemService {
@@ -27,6 +27,7 @@ public class ExternalSystemService {
           webServiceURL,
           attendee
         );
+
         HttpResponse response = http.send(request);
         // Parse the JSON response
         if (response.getStatusCode() != 201) {
@@ -40,7 +41,6 @@ public class ExternalSystemService {
           // Everything went as expected.
           System.debug(response.getBody());
           notifyAttendeeByEmail(attendee);
-          Log.error('success');
         }
       }
     }

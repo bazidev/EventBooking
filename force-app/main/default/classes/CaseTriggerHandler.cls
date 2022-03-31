@@ -2,10 +2,14 @@
  * @description       : A handler for case trigger
  * @author            : melbazi@salesforce.com
  * @group             :
- * @last modified on  : 28-03-2022
+ * @last modified on  : 31-03-2022
  * @last modified by  : melbazi@salesforce.com
  **/
 public with sharing class CaseTriggerHandler extends TriggerHandler {
+  /**
+   * @description
+   * @author melbazi@salesforce.com | 31-03-2022
+   **/
   public override void beforeInsert() {
     List<Case> objects = (List<Case>) Trigger.new;
     Case request = objects[0];
@@ -26,7 +30,7 @@ public with sharing class CaseTriggerHandler extends TriggerHandler {
       LIMIT 1
     ];
 
-    Integer contactsSize = account.Contacts.size();
+    Integer contactsSize = account.contacts.size();
 
     if (contactsSize == 0) {
       request.addError(
@@ -51,6 +55,10 @@ public with sharing class CaseTriggerHandler extends TriggerHandler {
     }
   }
 
+  /**
+   * @description
+   * @author melbazi@salesforce.com | 31-03-2022
+   **/
   public override void afterUpdate() {
     Case firstRequest = (Case) Trigger.new[0];
 

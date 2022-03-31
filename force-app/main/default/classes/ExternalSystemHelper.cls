@@ -2,10 +2,17 @@
  * @description       :
  * @author            : melbazi@salesforce.com
  * @group             :
- * @last modified on  : 28-03-2022
+ * @last modified on  : 31-03-2022
  * @last modified by  : melbazi@salesforce.com
  **/
 public with sharing class ExternalSystemHelper {
+  /**
+   * @description build register request with url and attendee informations
+   * @author melbazi@salesforce.com | 31-03-2022
+   * @param String url
+   * @param Contact attendee
+   * @return HttpRequest
+   **/
   public static HttpRequest buildRegisterRequest(String url, Contact attendee) {
     Http http = new Http();
     HttpRequest request = new HttpRequest();
